@@ -1,0 +1,400 @@
+@font-face {
+  font-family: 'iconic';
+  src:url('../fonts/iconic.eot');
+  src:url('../fonts/iconic.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/iconic.woff') format('woff'),
+    url('../fonts/iconic.ttf') format('truetype'),
+    url('../fonts/iconic.svg#iconic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* iconic codes
+
+
+ \e802 facebook
+ \e803 twitter
+ \e804 reddit
+ \e805 stumble upon
+ \e806 google+
+ \e80b linked in
+ \e823 whatsapp
+ \e821 eye/views
+
+ \e807 print
+ \e822 print2
+
+ \e808 mail outline
+ \e809 mail full
+
+ \e80a @ symbol
+ \e80c heart
+ \e80d share
+ \e80e hamburger nav
+ \e80f gear
+ \e810 search
+ \e811 star
+
+ \e812 triangle down
+ \e813 triangle up
+ \e814 triangle left
+ \e815 triangle right
+ \e816 thick arrow down
+ \e817 thick arrow left
+ \e818 thick arrow right
+ \e819 thick arrow up
+ \e81a thin arrow left
+ \e81b thin arrow right
+ \e81c thin arrow up
+ \e81d thin arrow down
+
+ \e81e send
+ \e800 speach bubble outline
+ \e801 speach bubble full
+ \e81f add/plus
+
+*/
+
+.hidden{
+    display:none !important;
+}
+
+.share-widget{
+    min-width:265px;
+    max-width:970px; 
+    width:100%;
+    float:left;
+    
+    &--main{ 
+        width:100%;
+        margin: 15px 0;
+    }
+    &--block1,&--block2{
+        margin-bottom:15px;
+    }
+
+
+    &--docked{
+        
+        position: fixed;
+        bottom: -55px;
+        .transition(0.3s);
+        z-index: 2099;
+        width: ~"calc(100% - 30px)"
+
+    }
+    &--animated{
+
+        margin-bottom: 15px;
+        bottom: 0!important;
+
+    }
+    &--ghost{
+        opacity:0;
+    }
+}
+.share-btn{
+
+    //Basic Reset
+    div,p,a,span{border:0;margin:0;padding:0;line-height:1;font-weight:normal}
+
+    color: #fff;
+    float:left;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    letter-spacing: 1px;
+    outline: none;
+    position: relative;
+    font-size:15px;
+    width: 34px;
+    height: 34px;
+    p{
+        line-height:34px;
+    }
+    a{
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+    }
+
+    &:before{
+
+        font-family: 'iconic';
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        position: absolute;
+        pointer-events: none;
+        left: 0;
+        right: 0;
+        max-width: 40px;
+        max-height: 40px;
+        line-height: 34px;
+        font-size: 17px;
+        text-align: center;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+
+    }
+
+    //Button Styles ---------------------------------------------
+
+    // Responsive ------------------------
+    &--responsive{
+        &:not(:last-child){
+           margin-right: 10px; 
+        }
+        p{
+            padding-left:15px;
+            width: 100%;
+        }
+
+        &-mobile{
+            @media only screen and (max-width: 500px){
+
+                p{
+                    display:none;
+                }
+                &:before{
+                    margin: 0 auto;
+                }
+            }
+            p{
+                padding-left:15px;
+                width: 100%;
+            }
+            &:nth-child(4),&:nth-child(10){  //No Right Padding on G+ and Email
+                margin-right:0;
+            }
+            width: ~"calc((100% - 45px)/4)";
+            margin-right: 15px;
+
+        }
+
+    }
+    // Rounded ---------------------------
+    &--rounded{
+        .border-radius(4px);
+    }
+    // Compact ---------------------------
+    &--compact{
+
+    }
+    // Inline ----------------------------
+    &--inline{
+        
+    }
+    // Logo Only -------------------------
+    &--logo-only{
+        width: 34px;
+        height: 34px;
+        p{
+            display: none !important;
+        }
+    }
+
+    // Large -----------------------------
+    &--large{
+
+        min-width: 40px;
+        height: 40px;
+
+        p{
+            line-height: 40px;
+        }
+
+        &:before{
+            font-size: 20px;
+            line-height: 40px; 
+        }
+        
+
+    }
+
+
+
+    //Social types -----------------------------------------------
+    &--facebook{
+        background-color: @facebook-color;
+        &:before{
+
+            content: '\e802';
+
+        }
+    }
+    &--twitter{
+        background-color: @twitter-color;
+        &:before{
+
+            content: '\e803';
+
+        }               
+    }
+    &--linkedin{
+        background-color: @linkedin-color;
+        &:before{
+
+            content: '\e80b';
+
+        }                
+    }
+    &--googleplus{
+        background-color: @googleplus-color;
+        &:before{
+
+            content: '\e806';
+
+        }                
+    }
+    &--reddit{
+        background-color: @reddit-color;
+        &:before{
+
+            content: '\e804';
+
+        }                
+    }
+    &--stumbleupon{
+        background-color: @stumbleupon-color;
+        &:before{
+
+            content: '\e805';
+
+        }                
+    }
+    &--shares{
+        background-color: @share-color;
+        &:before{
+
+            content: '\e80d';
+
+        }                
+    }
+    &--comments{
+        background-color: @comments-color;
+        &:before{
+
+            content: '\e801';
+
+        }                
+    }
+    &--views{
+        background-color: @views-color;
+        &:before{
+
+            content: '\e821';
+
+        }                
+    }
+    &--email{
+        background-color: @email-color;
+        &:before{
+
+            content: '\e809';
+
+        }               
+    }
+    &--print{
+        background-color: @print-color;
+        width: 34px !important;
+        &:before{
+
+            content: '\e807';
+
+        }               
+    }
+    &--tumblr{
+        background-color: @tumblr-color;
+        &:before{
+
+            content: '\e820';
+
+        }        
+    }
+    &--whatsapp{
+        background-color: @whatsapp-color;
+        &:before{
+
+            content: '\e823';
+
+        }
+    }
+
+    .share-text{
+        text-align: center;
+        color: #fff;
+    }
+
+}
+
+#lean_overlay {
+    position: fixed;
+    z-index: 100;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    display: none;
+}
+.leanmodal-content {
+    display: none;
+    background-color: #f8f8f8;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px #444;
+    p {
+        margin: 6px 0;
+        font-weight: bold;
+    }
+    iframe{
+        margin: 0 auto;
+        display: block;
+        width: 100%;
+        text-align: center;
+        .facebook-like {
+        max-width: 190px;
+        margin: 0 auto;
+        }
+        &:not(.facebook-like) {
+            max-width: 150px;
+            margin: 14px auto;
+        }
+        .googleplus-follow {
+            max-width: 100px;
+        }
+        .twitter-follow {
+            max-width: 220px;
+        }
+    }
+    
+    .leanmodal-close {
+        background-color: #777;
+        color: #fff;
+        padding: 6px 10px;
+        float: right;
+        text-decoration: none;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: bold;
+        
+    }
+    .googleplus-link-cover {
+        background: transparent;
+        z-index: 2;
+        display: block;
+        width: 100px;
+        height: 20px;
+        position: absolute;
+        bottom: 24px;
+        left: 88px;
+    }
+}
+.leanmodal {
+    display: none;
+}

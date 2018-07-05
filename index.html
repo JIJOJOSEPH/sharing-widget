@@ -1,0 +1,184 @@
+<html>
+<head>
+<title>sharing widget plugin</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<!-- included only to ensure compatability with normalize/foundation css used in production, not necessary or required by the plugin -->
+<link rel="stylesheet" type="text/css" href="css/includes/normalize.min.css">
+<link rel="stylesheet" type="text/css" href="css/includes/foundation.min.css">
+
+<!-- required for rendering tooltips, otherwise optional -->
+<link rel="stylesheet" type="text/css" href="css/includes/hint.css">
+
+<!-- use according to which is being tested -->
+<link rel="stylesheet" type="text/css" href="css/sharing-widget_bz.css">
+<!-- <link rel="stylesheet" type="text/css" href="css/sharing-widget_mobile.css"> -->
+
+
+<style type="text/css">
+.share-info{
+  font-size:12px;
+  margin:0!important;
+  clear:both;
+}
+.share-widget{
+  clear:both;
+}
+</style>
+
+</head>
+<body>
+
+<!-- sharing widget instance wrapper -->
+<p class="share-info">Mobile Social Bar:<strong>| --responsive-mobile | --large | no-count |</strong></p>
+<p class="share-info">Switches to logo (mobile only) only when less than 500px (most phone sizes)</p>
+<div class="share-widget share-widget--main"></div>
+
+<div class="share-widget share-widget--docked"></div>
+
+<p class="share-info">Mobile footer social buttons block 1</p>
+<div class="share-widget share-widget--block1"></div>
+
+<p class="share-info">Mobile footer social buttons block 2</p>
+<div class="share-widget share-widget--block2"></div>
+
+<p class="share-info">Standard Social Bar:<strong>| --responsive |</strong></p>
+<p class="share-info">Will show share number if there are more than 5 shares. Will show share name if less than 5 shares</p>
+<div class="share-widget share-widget--test"></div>
+
+<p class="share-info">Just Logos: <strong>| --logo-only | no-count |</strong></p>
+<div class="share-widget share-widget--logoall"></div>
+
+
+<p class="share-info">Rounded Corners (4px) <strong>| --responsive | --rounded |</strong></p>
+<div class="share-widget share-widget--rounded"></div>
+
+<!-- jquery -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<!-- included only to ensure compatability with foundation js used in production, not necessary or required by the plugin
+<script src="/js/foundation.min.js"></script>
+-->
+<!-- jquery sharing widget -->
+<script src="js/jquery.sharing_widget.js"></script>
+<script>
+// jquery on document ready
+$(function() {
+
+
+
+
+
+//Standard Sharing Widget For Web
+$('.share-widget--test').sharing_widget({
+  nid: 4048429,
+  style: 'share-btn--responsive',
+  networks_show: 'facebook twitter linkedin googleplus email print',
+  tooltip: true,
+});
+
+//Rounded Corners Example
+$('.share-widget--rounded').sharing_widget({
+  nid: 4048429,
+  style: 'share-btn--responsive share-btn--rounded',
+  networks_show: 'facebook twitter linkedin googleplus stumbleupon email print',
+  tooltip: true,
+});
+
+//Logo All Example
+$('.share-widget--logoall').sharing_widget({
+  nid: 5084915,
+  // email_callback: function(){ alert("email click callback"); },
+  style: 'share-btn--logo-only',
+  networks_show: 'facebook twitter linkedin googleplus shares tumblr views reddit comments whatsapp email print no-count',
+  tooltip: true,
+});
+
+
+
+
+//Mobile Sharing Widget: Main
+$('.share-widget--main').sharing_widget({
+  nid: 4048429,
+  style: 'share-btn--responsive-mobile share-btn--large no-count',
+  networks_show: 'facebook twitter linkedin googleplus',
+  tooltip: false,
+});
+
+//Mobile Sharing Widget: Docked at Bottom After Scroll (Needs Corresponding JS At The Bottom)
+$('.share-widget--docked').sharing_widget({
+  page_url: "http:\/\/benzinga.com\/trading-ideas\/long-ideas\/12\/02\/2353806\/five-etfs-for-nascar-season-xlp-dia-vrom",
+  style: 'share-btn--responsive-mobile share-btn--large no-count',
+  networks_show: 'facebook twitter linkedin googleplus',
+  tooltip: false,
+});
+
+
+//Mobile Sharing Widget: Row 1 (4 limit) Sharing Options at Bottom
+$('.share-widget--block1').sharing_widget({
+  nid: 4104530,
+  style: 'share-btn--responsive-mobile share-btn--large no-count',
+  networks_show: 'facebook twitter linkedin googleplus',
+  tooltip: false,
+});
+
+//Mobile Sharing Widget: Row 2 (4 limit) Sharing Options at Bottom
+$('.share-widget--block2').sharing_widget({
+  nid: 4104530,
+  style: 'share-btn--responsive-mobile share-btn--large no-count',
+  networks_show: 'stumbleupon tumblr reddit whatsapp',
+  tooltip: false,
+});
+
+
+
+
+
+
+//Script For Docked Mobile Sharing Bar
+
+var sharewidget = $(".share-widget--docked"),
+    animated = "share-widget--animated",
+    ghost = "share-widget--ghost";
+
+//Check if scrolled past 300px
+$(window).scroll(function() {
+  if ($(window).scrollTop() < 300) {
+    if (sharewidget.hasClass(animated)) {
+      sharewidget.removeClass(animated);
+    }
+  }
+  else if (!sharewidget.hasClass(animated)) {
+    sharewidget.addClass(animated);
+  }
+
+  // Hide Docked if Bottom Sharing Buttons are Visible
+  isOnView = isElementVisible(".share-widget--block1");
+  if(isOnView){
+    if(!sharewidget.hasClass(ghost)){
+      sharewidget.addClass(ghost);
+    }
+    
+  }
+  else if (sharewidget.hasClass(ghost)){ // If not visible
+    sharewidget.removeClass(ghost);
+  }
+
+
+
+});
+
+function isElementVisible(elementToBeChecked){
+  var TopView = $(window).scrollTop();
+  var BotView = TopView + $(window).height();
+  var TopElement = $(elementToBeChecked).offset().top;
+  var BotElement = TopElement + $(elementToBeChecked).height();
+  return ((BotElement <= BotView) && (TopElement >= TopView));
+}
+
+
+
+}); // end on document ready
+</script>
+</body>
+</html>

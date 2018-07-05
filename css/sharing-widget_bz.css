@@ -1,0 +1,335 @@
+@font-face {
+  font-family: 'iconic';
+  src: url('../fonts/iconic.eot');
+  src: url('../fonts/iconic.eot?#iefix') format('embedded-opentype'), url('../fonts/iconic.woff') format('woff'), url('../fonts/iconic.ttf') format('truetype'), url('../fonts/iconic.svg#iconic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* iconic codes
+
+
+ \e802 facebook
+ \e803 twitter
+ \e804 reddit
+ \e805 stumble upon
+ \e806 google+
+ \e80b linked in
+ \e823 whatsapp
+ \e821 eye/views
+
+ \e807 print
+ \e822 print2
+
+ \e808 mail outline
+ \e809 mail full
+
+ \e80a @ symbol
+ \e80c heart
+ \e80d share
+ \e80e hamburger nav
+ \e80f gear
+ \e810 search
+ \e811 star
+
+ \e812 triangle down
+ \e813 triangle up
+ \e814 triangle left
+ \e815 triangle right
+ \e816 thick arrow down
+ \e817 thick arrow left
+ \e818 thick arrow right
+ \e819 thick arrow up
+ \e81a thin arrow left
+ \e81b thin arrow right
+ \e81c thin arrow up
+ \e81d thin arrow down
+
+ \e81e send
+ \e800 speach bubble outline
+ \e801 speach bubble full
+ \e81f add/plus
+
+*/
+.hidden {
+  display: none !important;
+}
+.share-widget {
+  min-width: 265px;
+  max-width: 970px;
+  width: 100%;
+  float: left;
+}
+.share-widget--main {
+  width: 100%;
+  margin: 15px 0;
+}
+.share-widget--block1,
+.share-widget--block2 {
+  margin-bottom: 15px;
+}
+.share-widget--docked {
+  position: fixed;
+  bottom: -55px;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition: 0.3s;
+  transition: 0.3s;
+  z-index: 2099;
+  width: calc(100% - 30px);
+}
+.share-widget--animated {
+  margin-bottom: 15px;
+  bottom: 0!important;
+}
+.share-widget--ghost {
+  opacity: 0;
+}
+.share-btn {
+  color: #fff;
+  float: left;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  letter-spacing: 1px;
+  outline: none;
+  position: relative;
+  font-size: 15px;
+  width: 34px;
+  height: 34px;
+}
+.share-btn div,
+.share-btn p,
+.share-btn a,
+.share-btn span {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-weight: normal;
+}
+.share-btn p {
+  line-height: 34px;
+}
+.share-btn a {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+}
+.share-btn:before {
+  font-family: 'iconic';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  position: absolute;
+  pointer-events: none;
+  left: 0;
+  right: 0;
+  max-width: 40px;
+  max-height: 40px;
+  line-height: 34px;
+  font-size: 17px;
+  text-align: center;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.share-btn--responsive:not(:last-child) {
+  margin-right: 10px;
+}
+.share-btn--responsive p {
+  padding-left: 15px;
+  width: 100%;
+}
+.share-btn--responsive-mobile {
+  width: calc((100% - 45px)/4);
+  margin-right: 15px;
+}
+@media only screen and (max-device-width: 500px) {
+  .share-btn--responsive-mobile p {
+    display: none;
+  }
+  .share-btn--responsive-mobile:before {
+    margin: 0 auto;
+  }
+}
+.share-btn--responsive-mobile p {
+  padding-left: 15px;
+  width: 100%;
+}
+.share-btn--responsive-mobile:nth-child(4),
+.share-btn--responsive-mobile:nth-child(10) {
+  margin-right: 0;
+}
+.share-btn--rounded {
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  background-clip: padding-box;
+}
+.share-btn--logo-only {
+  width: 34px;
+  height: 34px;
+}
+.share-btn--logo-only p {
+  display: none !important;
+}
+.share-btn--large {
+  min-width: 40px;
+  height: 40px;
+}
+.share-btn--large p {
+  line-height: 40px;
+}
+.share-btn--large:before {
+  font-size: 20px;
+  line-height: 40px;
+}
+.share-btn--facebook {
+  background-color: #3b5998;
+}
+.share-btn--facebook:before {
+  content: '\e802';
+}
+.share-btn--twitter {
+  background-color: #00aced;
+}
+.share-btn--twitter:before {
+  content: '\e803';
+}
+.share-btn--linkedin {
+  background-color: #007bb6;
+}
+.share-btn--linkedin:before {
+  content: '\e80b';
+}
+.share-btn--googleplus {
+  background-color: #dd4b39;
+}
+.share-btn--googleplus:before {
+  content: '\e806';
+}
+.share-btn--reddit {
+  background-color: #ff4500;
+}
+.share-btn--reddit:before {
+  content: '\e804';
+}
+.share-btn--stumbleupon {
+  background-color: #eb4924;
+}
+.share-btn--stumbleupon:before {
+  content: '\e805';
+}
+.share-btn--shares {
+  background-color: #ff9800;
+}
+.share-btn--shares:before {
+  content: '\e80d';
+}
+.share-btn--comments {
+  background-color: #b0b0b0;
+}
+.share-btn--comments:before {
+  content: '\e801';
+}
+.share-btn--views {
+  background-color: #00ac98;
+}
+.share-btn--views:before {
+  content: '\e821';
+}
+.share-btn--email {
+  background-color: #808080;
+}
+.share-btn--email:before {
+  content: '\e809';
+}
+.share-btn--print {
+  background-color: #444444;
+  width: 34px !important;
+}
+.share-btn--print:before {
+  content: '\e807';
+}
+.share-btn--tumblr {
+  background-color: #2c4762;
+}
+.share-btn--tumblr:before {
+  content: '\e820';
+}
+.share-btn--whatsapp {
+  background-color: #64d448;
+}
+.share-btn--whatsapp:before {
+  content: '\e823';
+}
+.share-btn .share-text {
+  text-align: center;
+  color: #fff;
+}
+#lean_overlay {
+  position: fixed;
+  z-index: 100;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  background: #000;
+  display: none;
+}
+.leanmodal-content {
+  display: none;
+  background-color: #f8f8f8;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px #444;
+}
+.leanmodal-content p {
+  margin: 6px 0;
+  font-weight: bold;
+}
+.leanmodal-content iframe {
+  margin: 0 auto;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+.leanmodal-content iframe .facebook-like {
+  max-width: 190px;
+  margin: 0 auto;
+}
+.leanmodal-content iframe:not(.facebook-like) {
+  max-width: 150px;
+  margin: 14px auto;
+}
+.leanmodal-content iframe .googleplus-follow {
+  max-width: 100px;
+}
+.leanmodal-content iframe .twitter-follow {
+  max-width: 220px;
+}
+.leanmodal-content .leanmodal-close {
+  background-color: #777;
+  color: #fff;
+  padding: 6px 10px;
+  float: right;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+.leanmodal-content .googleplus-link-cover {
+  background: transparent;
+  z-index: 2;
+  display: block;
+  width: 100px;
+  height: 20px;
+  position: absolute;
+  bottom: 24px;
+  left: 88px;
+}
+.leanmodal {
+  display: none;
+}
